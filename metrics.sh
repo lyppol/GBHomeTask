@@ -10,7 +10,7 @@ if [ $1 = cpu ]
 then 
 	echo system.cpu.idle    $(top -b -n1 -i | awk ' NR==3 {print $6}')
 	echo system.cpu.user    $(top -b -n1 -i | awk ' NR==3 {print $2}')
-	echo system.cpu.guest   $(cat /proc/stat| awk ' NR==2 {print $10}').0
+	echo system.cpu.guest   $(cat /proc/stat| awk ' NR==2 {printf "%.1f", $10}')
 	echo system.cpu.iowait  $(top -b -n1 -i | awk ' NR==3 {print $10}')
 	echo system.cpu.stolen  $(top -b -n1 -i | awk ' NR==3 {print $16}')
 	echo system.cpu.system  $(top -b -n1 -i | awk ' NR==3 {print $4}')
