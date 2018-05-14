@@ -5,7 +5,7 @@
 
 #! /bin/bash
 
-# this part prints CPU metrics
+# This part prints CPU metrics
 if [ $1 = cpu ]
 then 
 	echo system.cpu.idle    $(top -b -n1 -i | awk ' NR==3 {print $6}')
@@ -16,7 +16,7 @@ then
 	echo system.cpu.system  $(top -b -n1 -i | awk ' NR==3 {print $4}')
 fi
 
-# this part prints RAM metrics
+# This part prints RAM metrics
 if [ $1 = mem ]
 then
 	echo virtual total      $(free | awk 'NR==2{print $2}')
